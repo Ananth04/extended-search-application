@@ -10,10 +10,12 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <header>
         <h1>Vineet is an idiot</h1>
         <Link to='/'>Home</Link>
         <Link to='/results'>Results</Link> {/* Link to Results Page */}
         <Link to='/entity/123'>Entity Detail</Link> {/* Example link to Entity Detail Page with ID 123 */}
+        </header>
         <Routes>
           <Route path="/" element={<LandingPage />} /> {/* Landing page */}
           <Route path="/results" element={<ResultsPage />} /> {/* Results page */}
