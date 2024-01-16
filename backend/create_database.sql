@@ -1,6 +1,6 @@
 -- Create Technology table
 CREATE TABLE Technology (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   type TEXT,
   price REAL,
@@ -9,6 +9,7 @@ CREATE TABLE Technology (
   release_date DATE,
   specifications TEXT,
   manufacturer_id INTEGER,
+  countryofOriginID INTEGER,
   average_rating REAL,
   warranty_period INTEGER,
   battery_life INTEGER,
@@ -16,12 +17,13 @@ CREATE TABLE Technology (
   ram INTEGER,
   processor_type TEXT,
   FOREIGN KEY(manufacturer_id) REFERENCES Manufacturer(id)
+  FOREIGN KEY(countryofOriginID) REFERENCES Country(id)
   -- Add other foreign key constraints based on relationships
 );
 
 -- Create Country table
 CREATE TABLE Country (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   continent TEXT,
   population INTEGER,
@@ -42,7 +44,7 @@ CREATE TABLE Country (
 
 -- Create Manufacturer table
 CREATE TABLE Manufacturer (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   headquarters TEXT,
   year_founded INTEGER,
@@ -63,7 +65,7 @@ CREATE TABLE Manufacturer (
 
 -- Create Retailer table
 CREATE TABLE Retailer (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   type TEXT,
   locations TEXT,
@@ -83,7 +85,7 @@ CREATE TABLE Retailer (
 
 -- Create UserReviews table
 CREATE TABLE UserReviews (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT,
   rating INTEGER,
   date_of_review DATE,
@@ -102,14 +104,14 @@ CREATE TABLE UserReviews (
   FOREIGN KEY(product_reviewed_id) REFERENCES Technology(id)
 );
 
--- Create TechnologyManufacturer table (Many-to-One relationship)
+/*-- Create TechnologyManufacturer table (Many-to-One relationship)
 CREATE TABLE TechnologyManufacturer (
   technology_id INTEGER,
   manufacturer_id INTEGER,
   FOREIGN KEY(technology_id) REFERENCES Technology(id),
   FOREIGN KEY(manufacturer_id) REFERENCES Manufacturer(id),
   PRIMARY KEY(technology_id)
-);
+);*/
 
 -- Create TechnologyCountry table (Many-to-Many relationship)
 CREATE TABLE TechnologyCountry (
@@ -120,32 +122,32 @@ CREATE TABLE TechnologyCountry (
   PRIMARY KEY(technology_id, country_id)
 );
 
--- Create TechnologyUserReviews table (One-to-Many relationship)
+/*-- Create TechnologyUserReviews table (One-to-Many relationship)
 CREATE TABLE TechnologyUserReviews (
   technology_id INTEGER,
   user_review_id INTEGER,
   FOREIGN KEY(technology_id) REFERENCES Technology(id),
   FOREIGN KEY(user_review_id) REFERENCES UserReviews(id),
   PRIMARY KEY(technology_id)
-);
+);*/
 
--- Create CountryTechnology table (Many-to-Many relationship)
+/*-- Create CountryTechnology table (Many-to-Many relationship)
 CREATE TABLE CountryTechnology (
   country_id INTEGER,
   technology_id INTEGER,
   FOREIGN KEY(country_id) REFERENCES Country(id),
   FOREIGN KEY(technology_id) REFERENCES Technology(id),
   PRIMARY KEY(country_id, technology_id)
-);
+);*/
 
--- Create ManufacturerTechnology table (One-to-Many relationship)
+/*-- Create ManufacturerTechnology table (One-to-Many relationship)
 CREATE TABLE ManufacturerTechnology (
   manufacturer_id INTEGER,
   technology_id INTEGER,
   FOREIGN KEY(manufacturer_id) REFERENCES Manufacturer(id),
   FOREIGN KEY(technology_id) REFERENCES Technology(id),
   PRIMARY KEY(manufacturer_id)
-);
+);*/
 
 -- Create RetailerTechnology table (Many-to-Many relationship)
 CREATE TABLE RetailerTechnology (
@@ -156,11 +158,11 @@ CREATE TABLE RetailerTechnology (
   PRIMARY KEY(retailer_id, technology_id)
 );
 
--- Create UserReviewsTechnology table (Many-to-One relationship)
+/*-- Create UserReviewsTechnology table (Many-to-One relationship)
 CREATE TABLE UserReviewsTechnology (
   user_review_id INTEGER,
   technology_id INTEGER,
   FOREIGN KEY(user_review_id) REFERENCES UserReviews(id),
   FOREIGN KEY(technology_id) REFERENCES Technology(id),
   PRIMARY KEY(user_review_id)
-);
+);*/
