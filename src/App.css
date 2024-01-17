@@ -1,8 +1,12 @@
 /* Add your CSS styles here */
+html,
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 1%;
+  padding-bottom: 0;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .App {
@@ -11,7 +15,10 @@ body {
 }
 
 header {
+  grid-row: 1;
+  grid-column: span 2;
   background-color: aqua;
+  text-align: center;
 }
 
 h1 {
@@ -36,32 +43,41 @@ a:hover {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.landing-page{
+  display:grid;
+  grid-template-columns: 1fr 2fr ;
+  grid-template-rows: 1fr 2fr 6fr 2fr 1fr;
+  gap: 5%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.random-text-1 {
+  grid-row: 2/span 1;
+  grid-column: span 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.entity-dropdown {
+  grid-row: 3/span 1;
+  grid-column: 1/span 1;
+}
+
+.search-bar {
+  grid-row: 3/span 1;
+  grid-column: 2/span 1;
+}
+
+.random-text-2 {
+  grid-row: 4/span 1;
+  grid-column: span 2;
+}
+
+
+Footer{
+  position: relative;
+  text-align: center;
+  background-color: #000;
+  color: #333;
+  grid-row: 5/span 1;
+  grid-column: span 2;
 }
