@@ -2,11 +2,19 @@
 html,
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 10% 10% 0 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10%;
+  margin-right: 10%;
   padding: 1%;
   padding-bottom: 0;
   height: 100vh;
   min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bgmain.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .App {
@@ -17,8 +25,11 @@ body {
 header {
   grid-row: 1;
   grid-column: span 2;
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
+  border: black solid 2px;
+  border-radius: 16px;
   text-align: center;
+  text-decoration: underline;
 }
 
 h1 {
@@ -55,21 +66,42 @@ a:hover {
 .random-text-1 {
   grid-row: 2/span 1;
   grid-column: span 2;
+  background-color: rgb(255, 255, 255);
+  border: black solid 2px;
+  border-radius: 16px;
+  padding: 10px 15px 20px 25px;
+}
+
+.random-text-1 p{
+  font-size: medium;
+  font-weight: bold;
 }
 
 .entity-dropdown {
   grid-row: 3/span 1;
   grid-column: 1/span 1;
+  background-color: rgb(255, 255, 255);
+  border: black solid 2px;
+  border-radius: 16px;
+  padding: 10px 15px 20px 25px;
 }
 
 .search-bar {
   grid-row: 3/span 1;
   grid-column: 2/span 1;
+  background-color: rgb(255, 255, 255);
+  border: black solid 2px;
+  border-radius: 16px;
+  padding: 10px 15px 20px 25px;
 }
 
 .random-text-2 {
   grid-row: 4/span 1;
   grid-column: span 2;
+  background-color: rgb(255, 255, 255);
+  border: black solid 2px;
+  border-radius: 16px;
+  padding: 10px 15px 20px 25px;
 }
 
 
